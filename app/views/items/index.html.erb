@@ -1,0 +1,45 @@
+<%= render 'layouts/index'%>
+<div class="jumbotron jumbotron-fluid ">
+        <div class="container">
+            <h1 class="display-4 text-center text-info">List of available items</h1>           
+        </div>
+</div>
+
+
+<div class="card-deck justify-content-center"> 
+    <% @items.each do |item| %>
+        <div class="row">
+        <div class="card rounded" style="width: 18rem;">
+            <div class="card-img-top w-100 text-center">
+                 <%= image_tag item.picture if item.picture.attached?%>
+            </div> 
+            <div class="card-body">
+                <h5 class="card-title bg-light text-info"><%=item.name%></h5>
+                <h5 class="card-title"><%="$#{item.price}"%></h5>
+                <h5 class="card-title"><%= item.location%></h5>       
+               
+                 <% if user_signed_in? %>
+                    <% if current_user.items.include?(item) || current_user.admin? %>
+                        <%= link_to "Remove", item_path(item.id), method: :delete, class:"btn btn-outline-danger btn-sm"%>
+                        <%= link_to "update", edit_item_path(item.id), class:"btn btn-outline-danger btn-sm"%><br><br>
+                    <%end%>
+                <%end%>
+                    <%= link_to "view this item", item_path(item.id), class:"btn btn-outline-success btn-sm"%> 
+            </div>
+        </div>
+        </div>
+    <%end%>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    

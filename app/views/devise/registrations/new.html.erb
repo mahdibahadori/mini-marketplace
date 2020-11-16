@@ -1,0 +1,36 @@
+
+<div class='container mw-100 mt-5 d-flex flex-column flex-md-row'>
+
+  <div class="form col-12 col-md-6">
+    <h2>Sign up</h2>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="form-group mw-75">
+      <%= f.label :email %>
+      <%= f.text_field(:email, class: "form-control", placeholder: "Email Address") %>
+    </div>
+    <div class="form-group mw-75">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field(:password, class: "form-control", placeholder: "Password") %>
+    </div>
+    <div class="form-group mw-75">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>    
+    </div>   
+   
+    <%= f.submit 'Register', class: 'btn btn-outline-info rounded-pill mb-1' %><br>
+    <%= render "devise/shared/links" %>
+    <%end%>
+    
+  </div>
+  <div class=" d-block col-12 col-sm-12 col-md-6 h-50">
+    <%= image_tag("register.png", class: 'img-fluid mx-auto d-none d-md-block col-md-10')%>  
+  </div>
+
+</div> 
+
+

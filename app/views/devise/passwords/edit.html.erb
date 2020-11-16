@@ -1,0 +1,36 @@
+
+
+<div class='container mw-100 mt-5 d-flex flex-column flex-md-row'>
+
+  <div class="form col-12 col-md-6">
+    <h2>Change your password</h2>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="form-group mw-75">
+    <%= f.label :password, "New password" %><br />
+    <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+    <% end %>
+    <%= f.password_field :password, class:'form-control', autofocus: true, autocomplete: "new-password" %>
+    </div>     
+    
+    <div class="form-group mw-75">
+     <%= f.label :password_confirmation %><br />
+     <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>    
+    </div> 
+    
+  
+   
+    <%= f.submit 'Change Password', class: 'btn btn-outline-info rounded-pill mb-1' %><br>
+    <%= render "devise/shared/links" %>
+    <%end%>
+    
+  </div>
+  <div class=" d-block col-12 col-sm-12 col-md-6 h-50">
+    <%= image_tag("edit.png", class: 'img-fluid mx-auto d-none d-md-block col-md-10')%>  
+  </div>
+
+</div> 
+

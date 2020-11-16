@@ -1,0 +1,47 @@
+
+
+<%# ---------------------------------------------------------------------------------------------------------- %>
+<%= render "layouts/new"%>
+<div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4 text-center text-info px-3 px-md-1">Edit This Item</h1>           
+        </div>
+</div>
+
+<div class='container mw-100 mt-5 d-flex flex-column flex-md-row'>
+
+  <div class="form col-12 col-md-6">
+    <h2>Edit</h2>
+   <%= form_for @item, local: true, class: "new_items" do |f| %> 
+
+    <div class="form-group mw-75">
+      <%= f.label :name %>    
+      <%= f.text_field :name, class: "form-control"%>
+    </div>
+    <div class="form-group mw-75">
+      <%= f.label :description %>    
+      <%= f.text_area :description, class: "form-control"%>
+    </div>
+    <div class="form-group mw-75">
+      <%= f.label :location %>    
+      <%= f.text_field :location, class: "form-control"%>
+    </div>
+    <div class="form-group mw-75">
+      <%= f.label :price %>    
+      <%= f.text_field :price, class: "form-control"%>
+    </div>
+    <div class="form-group mw-75">
+      <%= f.label :picture %>    
+      <%= f.file_field :picture, class: "form-control"%>
+    </div>  
+    <%= f.submit 'Update', class: 'btn btn-outline-info rounded-pill mb-3' %><br>
+    <%= link_to "Disregard Changes", items_path, class: 'btn btn-outline-info rounded-pill mb-1' %>
+   
+  <%end%>
+  </div> 
+  <div class=" d-block col-12 col-sm-12 col-md-6 h-50">
+    <%= image_tag("edit.png", class: 'img-fluid mx-auto d-none d-md-block col-md-10')%>  
+  </div>
+</div> 
+
+
