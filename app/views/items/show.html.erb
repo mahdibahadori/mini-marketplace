@@ -14,15 +14,15 @@
     <div class="my-1 font-weight-bold bg-info text-white"><h1><%= @item.name%></h1></div>   
     <div><h3 class="font-weight-normal my-5"><%= @item.description%></h3></div> 
     <div><p class="font-weight-normal text-info">contact the owner of this item by sending email to: <%= @item.user.email%></p></div> 
+    <button class="btn-sm w-25 mt-5 mx-auto" id="stripe">Buy this item</button>
     
   </div>
   <div class="text-center d-block col-12 col-sm-12 col-md-6 h-50"> 
     <%=image_tag @item.picture, class:"img-fluid w-100"%>   
-  </div>
-  
+  </div>  
 </div>
 
-
+ <%= javascript_pack_tag "stripe" %>
 
 
 
