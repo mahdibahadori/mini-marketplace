@@ -3,12 +3,12 @@ class PaymentsController < ApplicationController
     skip_before_action :verify_authenticity_token, only: [:create, :webhook]
   
     def create 
-      items = Item.find(params[:id])
+      item = Item.find(params[:id])
       session = Stripe::Checkout::Session.create({
         payment_method_types: ['card'],
         line_items: [{
           price_data: {
-            unit_amount: item.price,
+            unit_amount: item.price*100,
             currency: 'aud',
             product_data: {
               name: item.name
@@ -39,9 +39,9 @@ class PaymentsController < ApplicationController
       case event['type']
       when 'checkout.session.completed'
         checkout_session = event['data']['object']
-        # write to the database to confirm that a listing has actually been sold 
+        # write to the database to confirm that an item has actually been sold 
       when 'checkout.session.async_payment_failed'
-        # write to the database that a listing is still available
+        # write to the database that an item is still available
         # reach out to the customer to say that the payment was unsuccessful
       end
     end
