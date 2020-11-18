@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
         <div class="card rounded" style="width: 18rem;">
             <div class="card-img-top w-100 text-center">
-                 <%= image_tag item.picture if item.picture.attached?%>
+                 <%= image_tag item.picture, class: "img-fluid" if item.picture.attached?%>
             </div> 
             <div class="card-body">
                 <h5 class="card-title bg-light text-info"><%=item.name%></h5>
