@@ -1,6 +1,6 @@
 # README
 
-### This app is a simple marketplace-like application with core functionalitiies of a CRUD app.
+#### This app is a simple marketplace-like application with core functionalities of a CRUD app.
 
 ### In this app, users can sign in or register. Upon registration completion, they may advertise their 
 ### items. Each user is able to manage his own items; however, he is able to view other users' items and buy 
