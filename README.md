@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app is a simple marketplace-like application with core functionalitiies of 
+a CRUD app.
 
-Things you may want to cover:
+In this app, users can sign in or register. Upon registration completion, they may advertise their 
+items. Each user is able to manage his own items; however, he is able to view other users' items and buy 
+them. Each item has also one attached image.
 
-* Ruby version
+Access to different actions and sections is controlled by devise and control flow structure to
+make sure no authorised user can update or delete other users' stuff.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+More functionalities are also under consideration
